@@ -1,12 +1,14 @@
 from pathlib import Path
 
-with open('name') as f:
-    NAME = f.read().strip()
 
-BASE_DIR = Path.cwd()
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 SYSTEMD_DIR = BASE_DIR / 'systemd'
 
-with open('token') as f:
+with open(BASE_DIR / 'config' / 'name') as f:
+    NAME = f.read().strip()
+
+with open(BASE_DIR / 'token') as f:
     TOKEN = f.read().strip()
 HEADERS = {'Authorization': f'Bearer {TOKEN}'}
 
