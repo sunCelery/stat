@@ -1,5 +1,14 @@
+from pathlib import Path
+
+with open('name') as f:
+    NAME = f.read().strip()
+
+BASE_DIR = Path.cwd()
+SYSTEMD_DIR = BASE_DIR / 'systemd'
+
 with open('token') as f:
     TOKEN = f.read().strip()
+HEADERS = {'Authorization': f'Bearer {TOKEN}'}
 
 PROJECTS = {
     'django': {
@@ -22,11 +31,21 @@ PROJECTS = {
         'owner': 'Neoteroi',
         'repo': 'BlackSheep',
     },
+    'starlette': {
+        'owner': 'encode',
+        'repo': 'starlette',
+    },
+    'django-rest-framework': {
+        'owner': 'encode',
+        'repo': 'django-rest-framework',
+    },
+    'channels': {
+        'owner': 'django',
+        'repo': 'channels',
+    },
 }
 
-HEADERS = {'Authorization': f'Bearer {TOKEN}'}
-
-
-API_URL = 'https://api.github.com'
+# github
+GITHUB_API = 'https://api.github.com'
 SEARCH_ENDPOINT = '/search/issues'
-SEARCH_URL = API_URL + SEARCH_ENDPOINT
+SEARCH_URL = GITHUB_API + SEARCH_ENDPOINT

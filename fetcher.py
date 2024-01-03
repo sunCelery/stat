@@ -22,7 +22,7 @@ class GithubStatisticFetcher:
             'per_page': 1,
         }
 
-    def request(self, params: dict) -> requests.Response:
+    def request(self, params: dict = None) -> requests.Response:
         return requests.get(
             settings.SEARCH_URL,
             headers=settings.HEADERS,

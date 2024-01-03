@@ -4,7 +4,7 @@ from pathlib import Path
 import settings
 
 
-class SystemdServiceBaker:
+class SystemdTimerBaker:
     def __init__(self):
         self.systemd_timer_name = f'{settings.NAME}.timer'
         self.systemd_services_dir = Path(
@@ -26,7 +26,7 @@ class SystemdServiceBaker:
     def bake_systemd_timer(self) -> ConfigParser:
         config = self._read_config()
         config['Unit'] = {
-            'Description': f'Scheduler for{settings.NAME}.service',
+            'Description': f'Scheduler for {settings.NAME}.service',
         }
         config['Timer'] = {
             'OnCalendar': 'daily',
@@ -43,4 +43,4 @@ class SystemdServiceBaker:
 
 
 if __name__ == '__main__':
-    SystemdServiceBaker().bake()
+    SystemdTimerBaker().bake()
