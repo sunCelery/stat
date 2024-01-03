@@ -1,6 +1,6 @@
 import requests
 
-import settings
+from config import settings
 
 
 class GithubStatisticFetcher:
