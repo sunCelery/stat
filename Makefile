@@ -1,4 +1,5 @@
 NAME=$(cat name)
+PWD=$(pwd)
 
 daemon-update:
 	@ /usr/bin/source .venv/bin/activate && \
